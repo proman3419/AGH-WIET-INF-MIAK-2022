@@ -1,30 +1,25 @@
 from Stream import Stream
 from Scanner import Scanner
 from TokenCode import TokenCode
+from FormattedCodeGenerator import FormattedCodeGenerator
 
 
 if __name__ == '__main__':
-    s = """from Stream import Stream
-from Scanner import Scanner
-from TokenCode import TokenCode
-
-
-if __name__ == '__main__':
-    s = "13+17-(5+23*2++)+2329++a123b+b{}"
+    with open("Stream.py", "r") as f:
+        s = f.read()
     stream = Stream(s)
     scanner = Scanner(stream)
 
+    tokens = []
     while True:
         token = scanner.scan()
-        print(token)
-        if token.token_code == TokenCode.EOF or token.token_code == TokenCode.ERROR:
+        tokens.append(token)
+        print(token, token.code)
+        if token.code == TokenCode.EOF or token.code == TokenCode.ERROR:
             break
-"""
-    stream = Stream(s)
-    scanner = Scanner(stream)
 
-    while True:
-        token = scanner.scan()
-        print(token)
-        if token.token_code == TokenCode.EOF or token.token_code == TokenCode.ERROR:
-            break
+    formatted_code_generator = FormattedCodeGenerator()
+    formatted_code_generator.generate(tokens)
+
+    # TODO: proper scanning of strings and comments
+    # probably 2 cases of white characters should be considered (for example ['\n'] and ['\', 'n'])

@@ -1,0 +1,47 @@
+.reserved-keyword {
+    /* reserved keywords such as: for, import, +, ==, or ...
+       excluding def, class */
+    color: #f92672;
+}
+
+.known-method {
+    /* known methods such as print */
+    color: #a6e22e;
+}
+
+.new-definition {
+    /* def, class */
+    color: #66d9ef;
+}
+
+.constant {
+    /* numbers, quotes */
+    color: #ae81ff;
+}
+
+.string {
+    color: #e6db74;
+}
+
+.self {
+    /* literally just self */
+    color: #fd971f;
+}
+
+.comment {
+    /* # */
+    color: #75715e;
+}
+
+.error {
+    background-color: #ff3333;
+    color: #ffffff;
+}
+
+.other {
+    color: #ffffff;
+}
+
+.white-character {
+    color: #ffffff;
+}
